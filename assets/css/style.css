@@ -1,0 +1,196 @@
+/* Fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+.header {
+  text-align: center;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 40px 20px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.header .logo {
+  width: 300px; /* logo maior */
+  margin-bottom: 15px;
+  border-radius: 0; /* sem círculo */
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.header p {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Serviços */
+.services {
+  padding: 50px 20px;
+  background: #ffffff;
+}
+
+.services h2 {
+  text-align: center; /* Centralizando o título dos serviços */
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+/* Cards de serviços */
+.card {
+  border-radius: 16px;
+  padding: 25px 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px; /* Adicionando uma altura mínima */
+  display: flex; /* Para centralizar o conteúdo verticalmente */
+  flex-direction: column; /* Para alinhar itens em coluna */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+}
+
+.card i, .card p {
+  position: relative;
+  z-index: 1;
+}
+
+.card i {
+  font-size: 2.5rem; /* Aumentando o tamanho do ícone */
+  margin-bottom: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Gradiente sobre a imagem */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)); /* Escurecendo um pouco mais para legibilidade */
+  border-radius: 16px;
+  z-index: 0;
+  transition: background 0.3s ease;
+}
+
+/* --- CORREÇÃO APLICADA AQUI --- */
+/* Imagens específicas */
+.card-infra { background-image: url('../img/infra.jpg'); }
+.card-redes { background-image: url('../img/redes.jpg'); }
+.card-cftv { background-image: url('../img/cftv.jpg'); }
+.card-manutencao { background-image: url('../img/manutencao.jpg'); }
+.card-desenvolvimento { background-image: url('../img/desenvolvimento.jpg'); }
+.card-instalacao { background-image: url('../img/instalacao.jpg'); }
+
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card:hover::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4)); /* Efeito de clarear no hover */
+}
+
+
+/* Contato */
+.contact {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f3f4f6;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  min-width: 160px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Botões com gradiente */
+.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+.email    { background: linear-gradient(135deg, #EA4335, #C5221F); }
+.instagram{ background: linear-gradient(135deg, #C13584, #E1306C); }
+.location { background: linear-gradient(135deg, #2563eb, #1e40af); }
+
+/* Rodapé */
+.footer {
+  background: #1f2937;
+  color: #ddd;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* --- Animação de Scroll --- */
+
+/* Estilo inicial dos elementos que serão animados */
+.card, .btn {
+  opacity: 0; /* Começam invisíveis */
+  transform: translateY(30px); /* Começam um pouco para baixo */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Estilo que será aplicado pelo JavaScript quando o elemento estiver visível */
+.card.visible, .btn.visible {
+  opacity: 1; /* Ficam totalmente visíveis */
+  transform: translateY(0); /* Voltam para a posição original */
+}
